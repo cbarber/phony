@@ -216,7 +216,7 @@ module Phony
     #     invalid_ndcs('911') # The regexp /911/ would also work.
     #
     def invalid_ndcs *ndc
-      Validators::NDC.new invalid: ndc
+      Validators::NDC.new :invalid => ndc
     end
 
 

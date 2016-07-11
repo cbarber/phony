@@ -3,7 +3,7 @@
 
 Phony.define do
   country '263',
-    trunk('0', normalize: true) |
+    trunk('0', :normalize => true) |
     one_of(%w(2582 2583 5483)) >>
     matched_split(/\A\d{6}\z/ => [3,3],
                   /\A\d+\z/ => [3] ) | # geographic [XXXX] XXX(XXX)

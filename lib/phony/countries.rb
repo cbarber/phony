@@ -51,7 +51,7 @@ Phony.define do
   #
   country '1',
     # The US has a delimiter between NDC and local number.
-    trunk('1%s', normalize: true, format: false) | # http://en.wikipedia.org/wiki/Trunk_prefix
+    trunk('1%s', :normalize => true, :format => false) | # http://en.wikipedia.org/wiki/Trunk_prefix
     fixed(3) >> split(3,4),
     :invalid_ndcs => /[0-1]\d{2}|[3-9]11/,
     :parentheses => true,
@@ -122,7 +122,7 @@ Phony.define do
   # Hungary.
   #
   country '36',
-    trunk('06', normalize: false) |
+    trunk('06', :normalize => false) |
     one_of('104','105','107','112') >> split(3,3) | # Service
     one_of('1')                     >> split(3,4) | # Budapest
     fixed(2)                        >> split(3,4)   # 2-digit NDCs
@@ -141,7 +141,7 @@ Phony.define do
   # Switzerland.
   #
   country '41',
-          trunk('0', normalize: true) |
+          trunk('0', :normalize => true) |
           match(/^(8(00|4[0248]))\d+$/) >> split(3,3)|
           fixed(2)                      >> split(3,2,2)
 
@@ -649,7 +649,7 @@ Phony.define do
   # Lithuania
   #
   country '370',
-          trunk('8', normalize: false) |
+          trunk('8', :normalize => false) |
           one_of('700', '800')  >> split(2,3)   | # Service
           match(/^(6\d\d)\d+$/) >> split(2,3)   | # Mobile
           one_of('5')           >> split(3,2,2) | # Vilnius

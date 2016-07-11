@@ -1,13 +1,13 @@
 source "http://rubygems.org"
 
 gem 'rake'
-gem 'coveralls', require: false
+gem 'coveralls', :require => false
 
 group :test do
   gem 'qed'
   gem 'ae'
   gem 'rspec', '~> 2.0'
-  gem 'pippi', platforms: [:mri_20, :mri_21]
+  gem 'pippi', :platforms => [:mri_20, :mri_21]
 end
 
 platforms :rbx do
